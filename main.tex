@@ -1,0 +1,536 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+ignoreheadfoot, % set margins without considering header and footer
+top=2 cm, % seperation between body and page edge from the top
+bottom=2 cm, % seperation between body and page edge from the bottom
+left=2 cm, % seperation between body and page edge from the left
+right=2 cm, % seperation between body and page edge from the right
+footskip=1.0 cm, % seperation between body and footer
+% showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{42, 97, 187} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+pdftitle={Thanh Hoang-Minh's CV},
+pdfauthor={Thanh Hoang-Minh},
+pdfcreator={Thanh Hoang-Minh},
+colorlinks=true,
+urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\fi
+
+%\usepackage{fontspec}
+%\setmainfont{Segoe UI}
+
+\usepackage[default, type1]{sourcesanspro} 
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+%\patchcmd{\ps@customFooterStyle}{\thepage}{
+	%    \color{gray}\textit{\small Thanh Hoang-Minh - Page \thepage{} of \pageref*{LastPage}}
+	%}{}{} % replace number by desired string
+%\makeatother
+%\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+	% avoid page braking right after the section title
+	\needspace{4\baselineskip}
+	% make the font size of the section title large and color it with the primary color
+	\Large\color{primaryColor}
+}{
+}{
+}{
+	% print bold title, give 0.15 cm space and draw a line of 0.8 pt thickness
+	% from the end of the title to the end of the body
+	\textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[] % section title formatting
+
+\titlespacing{\section}{
+	% left space:
+	-1pt
+}{
+	% top space:
+	0.3 cm
+}{
+	% bottom space:
+	0.2 cm
+} % section title spacing
+
+% \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+	\begin{itemize}[
+		topsep=0.10 cm,
+		parsep=0.10 cm,
+		partopsep=0pt,
+		itemsep=0pt,
+		leftmargin=0.4 cm + 10pt
+		]
+	}{
+	\end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+	\begin{itemize}[
+		topsep=0.10 cm,
+		parsep=0.10 cm,
+		partopsep=0pt,
+		itemsep=0pt,
+		leftmargin=10pt
+		]
+	}{
+	\end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+	\begin{adjustwidth}{
+			0.2 cm + 0.00001 cm
+		}{
+			0.2 cm + 0.00001 cm
+		}
+	}{
+	\end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+	\onecolentry
+	\def\secondColumn{#2}
+	\setcolumnwidth{\fill, 4.5 cm}
+	\begin{paracol}{2}
+	}{
+		\switchcolumn \raggedleft \secondColumn
+	\end{paracol}
+	\endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+	\onecolentry
+	\def\thirdColumn{#3}
+	\setcolumnwidth{1 cm, \fill, 4.5 cm}
+	\begin{paracol}{3}
+		{\raggedright #2} \switchcolumn
+	}{
+		\switchcolumn \raggedleft \thirdColumn
+	\end{paracol}
+	\endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+	\setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+	\par\kern\topsep
+} % new environment for the header
+
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+	\newcommand{\AND}{\unskip
+		\cleaders\copy\ANDbox\hskip\wd\ANDbox
+		\ignorespaces
+	}
+	\newsavebox\ANDbox
+	\sbox\ANDbox{}
+	
+	\begin{header}
+		\fontsize{28 pt}{28 pt}
+		\textbf{Hoàng Minh Thanh}
+		
+		\vspace{0.2 cm}
+		{\large\textnormal{\textcolor[rgb]{0.4,0.4,0.4}{\textbf{Senior Creative Developer}}}}
+		
+		
+		\normalsize
+		%        \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Your Location}%
+		%        \kern 0.25 cm%
+		%        \AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{https://hmthanh.github.io}{{\faLink}\hspace*{0.13cm}hmthanh.github.io}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{https://github.com/hmthanh}{{\faGithub}\hspace*{0.13cm}hmthanh}}%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{https://linkedin.com/in/hmthanh}{{\faLinkedinIn}\hspace*{0.13cm}hmthanh}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{mailto:hmthanhgm@gmail.com}{{\faEnvelope[regular]}\hspace*{0.13cm}hmthanhgm@gmail.com}}%
+		\kern 0.25 cm%
+		\AND%
+		\kern 0.25 cm%
+		\mbox{\hrefWithoutArrow{tel:+84913472506}{{\faPhone*}\hspace*{0.13cm}+84 913 472 506}}%
+		\kern 0.25 cm%
+		
+		%        \AND%
+		
+	\end{header}
+	
+	\vspace{0.3 cm - 0.3 cm}
+	
+	%Welcome to RenderCV!
+	%    \section{}
+	
+	\vspace{0.2 cm}
+	
+	
+	\begin{onecolentry}
+		%            \href{https://rendercv.com}{RenderCV}
+		I’m passionate about WebGL and rendering every pixel on \texttt{<canvas>} context. With hands-on experience from multiple React and Three.js projects, I am well-suited for the Senior Creative Developer role at CodeCrush and capable of contributing to the development of high-quality, interactive 3D web experiences.
+	\end{onecolentry}
+	
+	%        \vspace{0.2 cm}
+	
+	%        \begin{onecolentry}
+		%            The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
+		%        \end{onecolentry}
+	
+	
+	
+	\section{\faAddressCard\ Summary}
+	
+	\begin{onecolentry}
+		\begin{highlightsforbulletentries}
+			
+			
+			\item \textbf{Proficient in Three.js, WebGL and Web Technologies}: \href{https://github.com/openhuman-ai/renderengine}{openhuman-ai/renderengine}, \href{https://humanmodel.pages.dev}{humanmodel.pages.dev}/\href{https://github.com/openhuman-ai/humanmodel}{Code}, \href{https://github.com/openhuman-ai/renderengine/blob/main/test/vertex_full.glsl}{GLSL Shader}, \href{https://github.com/FaceAnimation/faceanimation.github.io/tree/main/src}{faceanimation.github.io}, \href{https://hairrich.github.io}{hairrich.github.io}/\href{https://github.com/hairrich/hairrich.github.io}{Code}, \href{https://hmthanh.github.io/CrossSphere}{React ThreeFiber}, \href{https://jumming.vercel.app/}{Skeleton Animation}, ...
+			
+			Vast experience of multiple React web project: (\href{https://millionscope.com}{MillionScope}, \href{https://github.com/genealeaderboard/genealeaderboard.github.io}{GENEALeaderboard}, \href{https://cortexpod.com}{Cortexpod}, \href{https://metapet.vercel.app}{MetaPet}),...
+			Hands-on experience in optimization scalable production 3D web assets. 
+			
+			\item \textbf{Skilled in Blender \& Maya}: Experienced in modeling, rigging, texturing, optimizing, and Profound understand \href{https://github.com/hmthanh/glTF-Sample-Viewer}{GLTF JSON} Structure for exporting web assets. \href{https://www.youtube.com/@openhuman_ai}{Unity render}, \href{https://www.instagram.com/p/DKMV3xwJcQm}{Blender render}. 
+			
+			Skilled in Unity (Play my game \href{https://hmthanh.github.io/pucca_runner/}{Pucca Runner})
+			
+			\item \textbf{Comprehensive Understand Computer Graphic}: \textit{Keyword learned}: Ray Tracing in One Weekend, Subsurface scattering, Rendering Equation, \href{https://github.com/hmthanh/pbrt-v4}{pbrt-v4}, webgl2fundamentals, Physics/Spectrum/Eye Vision of Color, ... ,  \href{https://mattergen.github.io}{My Fillament doc remake} (BRDF, Diffuse, Reflection).
+			
+			\item \textbf{Experienced in English-speaking work environments}: Technical discussions, writing documentation, and collaborating effectively with international teams.
+			
+		\end{highlightsforbulletentries}
+	\end{onecolentry}
+	
+	\section{\faUniversity\ Education}
+	
+	\begin{threecolentry}{\textbf{AS}}{
+			2012 - 2015
+		}
+		\textbf{University of Science - VNUHCM}, Information Technology
+		%    	\begin{highlights}
+			%    		\item \textbf{Thesis:} \href{https://github.com/hmthanh/GCAT}{GCAT - Link Prediction in Knowledge Graph}, \href{https://github.com/hmthanh/GCAT}{Code}, 
+			%    	\end{highlights}
+	\end{threecolentry}
+	
+	\begin{threecolentry}{\textbf{BS}}{
+			Sept. 2018 - Sept. 2020
+		}
+		\textbf{University of Science - VNUHCM}, Computer Science
+		\begin{highlights}
+			\item GPA: 3.3/4.0
+			\item \textbf{Thesis:} \href{https://hmthanh.github.io/file/Link_Prediction_In_Knowledge_Graph.pdf}{GCAT - Link Prediction in Knowledge Graph}, \href{https://github.com/hmthanh/GCAT}{Code}.
+		\end{highlights}
+	\end{threecolentry}
+	
+	\begin{threecolentry}{\textbf{MSc}}{
+			Oct. 2021 - Dec. 2024
+		}
+		\textbf{University of Science - VNUHCM}, Computer Science
+		\begin{highlights}
+			\item GPA: 3.44/4.0
+			\item \textbf{Thesis:} \href{https://hmthanh.github.io/file/OpenHuman-A_conversational_gesture_synthesis_system_based_on_emotions_and_semantics.pdf}{OpenHuman: A conversational gesture synthesis system based on emotions and semantics},
+			\href{https://github.com/hmthanh/OHGesture}{Code}, \href{https://huggingface.co/openhuman/openhuman}{Huggingface}, \href{https://github.com/DeepGesture/deepgesture-unity}{Unity}, \href{https://youtu.be/yLwXdm7UgPE}{Demo}.
+		\end{highlights}
+	\end{threecolentry}
+	
+	
+	\section{\faBriefcase\ Experience}
+	
+	%        \begin{twocolentry}{2018 – 2019}
+		%            \textbf{XEP Outsource Company}, Web Developer
+		%            \begin{highlights}
+			%                \item Commercial website: Customize Database, Develop fullstack CRUD of e-commercial
+			%            \end{highlights}
+		%        \end{twocolentry}
+	
+	\begin{twocolentry}{Jul. 2019 – Apr. 2020}
+		\textbf{Rakumo Inc}, Software Engineer
+		\begin{highlights}
+			\item Django Web: develop webapp integrate DocuSign.
+		\end{highlights}
+	\end{twocolentry}
+	
+	\begin{twocolentry}{Oct. 2020 - Nov. 2021}
+		\textbf{FPT Software}, AWS Data Engineer
+		
+		\begin{highlights}
+			\item CI/CD pipeline, implemented and modified real-time and batch data pipelines on AWS using Kinesis, Lambda, S3, Glue, StepFunction, SNS, etc.
+			%\item Using Route53 and API Gateway to config Failover routing policy for availability
+			\item Collaborated with international teams in Agile development; established sprint planning and task tracking workflows using Rally and Jira.
+			%\item Write terraform to provision AWS infrastructure for the data pipelines.
+			Technologies
+			%Technologies Used: 
+			
+			
+			%        			\begin{highlights}
+				%        			\item 
+				%        			\item Using Route53 and API Gateway to config Failover routing policy for availability
+				%        			\item Wrote terraform to provision AWS infrastructure for the data pipelines.
+				%        			
+				%        		\end{highlights}
+		\end{highlights}
+		
+		
+	\end{twocolentry}
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{Oct. 2021 - May 2024}
+		\textbf{VNG Corp}, Software Engineer
+		
+		\textit{ZDN Team} (Zalo Content Delivery Network): caching service serve millions request
+		%             of the top Vietnamese news \& media website
+		\begin{highlights}
+			\item Implement scheduled java ThreadPool for monitoring stats execution.
+			\item Built React admin dashboard with server visualization via p5.js , amchart.js with NextJS 14.
+%			(\href{https://admin-nextjs-amcharts.vercel.app}{Sample})
+		\end{highlights}
+	\end{twocolentry}
+	
+	\begin{twocolentry}{May 2024 - Now}
+		\href{https://www.linkedin.com/company/openhuman/}{\textbf{OpenHuman}} (\href{https://openhuman.ai}{openhuman.ai}), Founder and Creator
+		
+		\begin{highlights}
+			\item GENEA Research Team (\href{https://genealeaderboard.github.io}{GENEA Leaderboard}, \href{https://github.com/hemvip/hemvip.github.io}{HEMVIP}): Developed a full-stack, production-grade from scratch leaderboard system using to evaluate multiple AI gesture generation models.
+			
+			Technologies:  Cloudflare Worker, R2, D1, NextJS App router, TailwindCSS V4
+			
+			\item  \href{https://github.com/DeepFACS}{DeepFACS}: Create mutiple blendshape compatible with ARKit 52 for blendshape, using Faceform Wrap for transfer topology from 3DScanStore basemesh to facial expression.
+			
+			\item \href{https://github.com/DeepGesture/DeepGesture-Unity}{DeepGesture} (\href{https://www.youtube.com/watch?v=eZghfNGmZn8}{Demo}): Developed a body animation generation AI system on Unity based on the \href{https://www.youtube.com/watch?v=YhH4PYEkVnY}{DeepPhase} research paper. Practice Quaternion on each Keyframe animation in Unity. Retarget skeleton animation using MotionBuilder.
+		\end{highlights}
+		
+	\end{twocolentry}
+	
+	
+	\section{\faCode\ Projects}
+	
+	\begin{twocolentry}{\href{https://renderengine.pages.dev}{renderengine.pages.dev}}
+		\textbf{Three.js realisitic face for OpenHuman} (\href{https://github.com/openhuman-ai/renderengine}{Code})
+		\begin{highlights}
+			\item Loaded and scaled facial OBJ parts in Blender (eyeball, head, tongue, etc.); applied edited albedo, roughness, specular, clearcoat maps; configured DatGUI, environment toggle, and tone mapping for realistic facial rendering
+		\end{highlights}
+	\end{twocolentry}
+	
+	\begin{twocolentry}{\href{https://hairrich.github.io}{hairrich.github.io}}
+		\textbf{HairRich - Three.js Hair for OpenHuman} (\href{https://github.com/hairrich/hairrich.github.io}{Code})
+		\begin{highlights}
+			\item Loaded hair mesh and applied textured material in Three.js.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	\begin{twocolentry}{\href{https://hmthanh.github.io/3d-human-model}{3d-human-model}}
+		\textbf{3D Human Model with ReadyPlayerMe} (\href{https://github.com/hmthanh/3d-human-model}{Code})
+		Integrated and configured ReadyPlayerMe model with morph targets in Three.js.
+	\end{twocolentry}
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{\href{https://millionscope.com}{millionscope.com}}
+		\textbf{MillionScope}  (\href{https://github.com/millionscope/millionscope.github.io}{Code}) ChatGPT-Clone with Chat SDK. Stream response result of Cloudflare Worker \& AI.
+	\end{twocolentry}
+	
+	\vspace{0.2 cm}
+	
+	\begin{twocolentry}{\href{https://hmthanh.github.io/pucca_runner/}{Pucca Runner}}
+		\textbf{Unity Game Pucca Runner} (\href{https://github.com/hmthanh/pucca_runner}{Code})
+		\begin{highlights}
+			\item Use a hash map of 2D coordinates and Dijkstra’s algorithm to find the shortest path. In the event loop, the runner moves toward the player. Trigger collision if Pucca catches the player, violates the ocean matrix, or reaches the final goal.
+		\end{highlights}
+	\end{twocolentry}
+	
+	
+	 \vspace{0.2 cm}
+\begin{twocolentry}{\href{https://humanmodel.pages.dev}{humanmodel.pages.dev}}
+	\textbf{Practice Three.js Reimplement Project} (\href{https://github.com/openhuman-ai/humanmodel}{Code}) - Deloyed with Cloudflare Pages.
+\end{twocolentry}
+
+	\vspace{0.2 cm}
+	
+	\begin{onecolentry}
+		\textbf{Three.js Demo Project}:
+		\href{https://glowshader.vercel.app}{GlowShader}/ \href{https://github.com/hmthanh/GlowShader}{Code}, \href{https://springsphere.vercel.app}{SpringSphere}/
+		\href{https://github.com/hmthanh/SpringSphere}{Code},
+		\href{https://vinfast.vercel.app}{Vinfast Car}/\href{https://github.com/hmthanh/vinfastcar}{Code}, \href{https://jumming.vercel.app/}{Jumming Girl}/ \href{https://github.com/hmthanh/jumming-girl}{Code}, \href{https://crosssphere.vercel.app/}{Cross Sphere}/ \href{https://github.com/hmthanh/crosssphere}{Code}.
+		
+	\end{onecolentry}
+	
+	\vspace{0.2 cm}
+	
+	\begin{onecolentry}
+		\textbf{Others}:
+		
+		\begin{highlights}
+			\item MetaPet (\href{https://metapet.vercel.app}{metapet.vercel.app}): Simple NFT Marketplace with Solidity, MetaMask.
+			
+			\item \href{https://cortexpod.com}{cortexpod.com}/\href{https://github.com/cortexpod/cortexpod.github.io}{Code};  \href{https://pithagon.com}{pithagon.com}/\href{https://github.com/pithagon/pithagon.github.io}{Code}: web blog with NextJS App router. Write Node.js to compile from markdown source to React components using unifiedjs, rehype, remark, mdx.js.
+			
+			\item Typescript \href{https://wedding-album.vercel.app}{Wedding Album}.
+		\end{highlights}
+	\end{onecolentry}
+	
+	%    \section{\faLaptop\ Technologies}
+	%        
+	%        \begin{onecolentry}
+		%            \textbf{Languages:} C++, C, Java, Objective-C, C\#, SQL, JavaScript
+		%        \end{onecolentry}
+	%
+	%        \vspace{0.2 cm}
+	%
+	%        \begin{onecolentry}
+		%            \textbf{Technologies:} .NET, Microsoft SQL Server, XCode, Interface Builder
+		%        \end{onecolentry}
+	%                
+	\section{\faCertificate\ Certifications}
+	%        \begin{onecolentry}
+		%        	\textbf{Languages:} C++, C, Java, Objective-C, C\#, SQL, JavaScript
+		%        \end{onecolentry}
+	
+	%        \vspace{0.2 cm}
+	\begin{highlights}
+		
+		
+		%\item {
+			% 	\begin{twocolentry}{Aug. 2014 - Oct. 2014}
+				% 		Support Student Examination Certification
+				% 	\end{twocolentry}
+			% }
+		
+		\item {
+			\begin{onecolentry}
+				\href{https://hmthanh.github.io/img/Critical_Thinking.jpg}{Critical Thinking Certification 2014}, \href{https://hmthanh.github.io/img/Emotion_Regconition.jpg}{Emotion Recognition Certification 2019}, \href{https://hmthanh.github.io/img/ml_summer.jpg}{Summer ML}
+			\end{onecolentry}
+			% 	\begin{twocolentry}{2019}
+				% 		\href{https://hmthanh.github.io/img/Emotion_Regconition.jpg}{Emotion Recognition Certification}
+				% 	\end{twocolentry}
+		}
+		
+		\item {
+			\begin{twocolentry}{2021}
+				Coursera: \href{https://www.coursera.org/account/accomplishments/certificate/28JLEX5NNNUQ}{Design Pattern},
+				\href{https://www.coursera.org/account/accomplishments/professional-cert/Q2B26F8Q84MZ}{TensorFlow Developer Professional}
+			\end{twocolentry}
+		}
+		
+		\item {
+			\begin{twocolentry}{2021}
+				\href{https://www.credly.com/badges/8e0316a5-2463-4d8c-aa34-76a2f6a0c1c3}{AWS Solutions Architect – Associate},  	\href{https://www.credly.com/badges/972d23a2-e63f-4125-aebd-2d2c696f840e}{AWS Machine Learning – Specialty}
+			\end{twocolentry}
+		}
+		
+		\item {
+			\begin{twocolentry}{2021}
+				\href{https://hmthanh.github.io/img/fpt_solution_architect_2021.png}{Solution Architect}
+			\end{twocolentry}
+		}
+		
+		
+	\end{highlights}
+	
+	%        \begin{onecolentry}
+		%        	\textbf{Technologies:} .NET, Microsoft SQL Server, XCode, Interface Builder
+		%        \end{onecolentry}
+	
+	\section{\faTrophy\ Awards}
+	
+	
+	\begin{twocolentry}{2009}
+		\begin{highlights}
+			\item Award in The Good Chemistry District Student Contest
+		\end{highlights}
+		
+	\end{twocolentry}
+	
+	\begin{onecolentry}
+		\begin{highlights}
+			\item \href{https://hmthanh.github.io/img/ThachThuc2013.jpg}{Thach Thuc 2013},  \href{https://hmthanh.github.io/img/ThachThuc2014.jpg}{Thach Thuc 2014} Faculty of Information Technology, HCMUS
+		\end{highlights}
+	\end{onecolentry}
+	
+	
+	
+\end{document}
+
+
+
+
+
+%\item {
+	%	\begin{twocolentry}{June. 2021}
+		%		\href{https://www.credly.com/badges/8e0316a5-2463-4d8c-aa34-76a2f6a0c1c3}{FPT Training: Solution Architect Certificate}
+		%	\end{twocolentry}
+	%}
+
+
+%        \begin{twocolentry}{2019}
+	%        	
+	%        	\begin{highlights}
+		%	        	\item \href{https://hmthanh.github.io/img/ml_summer.jpg}{Summer Course Machine Learning - HCMUS}
+		%	        \end{highlights}
+	%	        
+	%        \end{twocolentry}
+
+
+%    \section{\faNewspaper\ Publications}
+%
+%        \begin{samepage}
+	%            \begin{twocolentry}{Oct. 2024}
+		%                \textbf{Towards a GENEA Leaderboard}
+		%%                	an Extended, Living Benchmark for Evaluating and Advancing Conversational Motion Synthesis
+		%                \vspace{0.10 cm}
+		%
+		%\mbox{Rajmund Nagy}, \mbox{Hendric Voss}, \mbox{Youngwoo Yoon}, \mbox{Taras Kucherenko}, \mbox{Teodor Nikolov}, \textbf{Thanh Hoang-Minh}, \mbox{Rachel McDonnell}, \mbox{Stefan Kopp}, \mbox{Michael Neff}, \mbox{Gustav Eje Henter}
+		%%                \mbox{Frodo Baggins}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Samwise Gamgee}
+		%                \vspace{0.10 cm}
+		%
+		%        \href{https://doi.org/10.48550/arXiv.2410.06327}{10.48550/arXiv.2410.06327}
+		%            \end{twocolentry}
+	%        \end{samepage}
+

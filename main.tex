@@ -58,15 +58,16 @@ urlcolor=primaryColor
 \setlength{\columnsep}{0.15cm} % set column seperation
 \makeatletter
 \let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
-%\patchcmd{\ps@customFooterStyle}{\thepage}{
-	%    \color{gray}\textit{\small Thanh Hoang-Minh - Page \thepage{} of \pageref*{LastPage}}
-	%}{}{} % replace number by desired string
-%\makeatother
-%\pagestyle{customFooterStyle}
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+%	    \color{gray}
+	    \small \textit{ Thanh Hoang-Minh} - \texttt{https://github.com/hmthanh/cv}
+	}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
 
 \titleformat{\section}{
 	% avoid page braking right after the section title
-	\needspace{4\baselineskip}
+	\needspace{4\baselineskip}	
 	% make the font size of the section title large and color it with the primary color
 	\Large\color{primaryColor}
 }{

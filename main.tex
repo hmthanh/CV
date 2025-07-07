@@ -18,7 +18,8 @@ footskip=1.0cm,
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage[dvipsnames]{xcolor}
-\definecolor{primaryColor}{RGB}{26, 119, 212}
+%\definecolor{primaryColor}{RGB}{26, 119, 212}
+\definecolor{primaryColor}{RGB}{0, 100, 224}
 \usepackage{enumitem}
 \usepackage{fontawesome5}
 \usepackage{amsmath}
@@ -32,6 +33,7 @@ pdfcreator={Thanh Hoang-Minh},
 colorlinks=true,
 urlcolor=primaryColor
 ]{hyperref}
+%\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
 
 \usepackage[pscoord]{eso-pic}
 \usepackage{calc}
@@ -54,7 +56,10 @@ urlcolor=primaryColor
 
 % Font
 \usepackage[default, type1]{sourcesanspro}
-
+%\usepackage{fontspec}
+%\setmainfont{SourceSans3-VariableFont\_wght}
+%\setmainfont{Segoe UI}
+%\linespread{1.1}
 % ------------------------------------------------------------------------------
 % GENERAL SETTINGS
 % ------------------------------------------------------------------------------
@@ -69,7 +74,7 @@ urlcolor=primaryColor
 \makeatletter
 \let\ps@customFooterStyle\ps@plain
 \patchcmd{\ps@customFooterStyle}{\thepage}{
-	\small\textit{ Thanh Hoang-Minh} -- \texttt{https://github.com/hmthanh/cv}
+%	\small\textit{ Thanh Hoang-Minh} -- \texttt{https://github.com/hmthanh/cv}
 }{}{}
 \makeatother
 \pagestyle{customFooterStyle}
@@ -80,7 +85,8 @@ urlcolor=primaryColor
 
 \titleformat{\section}{
 	\needspace{4\baselineskip}
-	\Large\color{primaryColor}
+	\Large
+%	\color{primaryColor}
 }{}{}{\textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}}
 
 \titlespacing{\section}{-1pt}{0.3cm}{0.2cm}
@@ -137,7 +143,7 @@ urlcolor=primaryColor
 }
 
 \newenvironment{header}{
-	\setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+	\setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
 }{\par\kern\topsep}
 
 % ------------------------------------------------------------------------------
@@ -156,6 +162,7 @@ urlcolor=primaryColor
 \newcommand{\faOCID}{\includegraphics[height=1em]{icon/ocid.pdf}\xspace}
 \newcommand{\faScholar}{\includegraphics[height=1em]{icon/scholar.pdf}\xspace}
 %[regular]}\hspace*{0.13cm}
+
 % ------------------------------------------------------------------------------
 % BEGIN DOCUMENT
 % ------------------------------------------------------------------------------
@@ -174,6 +181,10 @@ urlcolor=primaryColor
 	\section{\faUniversity\ Education}
 	\input{sections/education.tex}
 	
+	% ---------------- Publications ---------------
+	\section{\faNewspaper\ Publications}
+	\input{sections/publications.tex}
+	
 	% ---------------- Experience ----------------
 	\section{\faBriefcase\ Experience}
 	\input{sections/experience.tex}
@@ -187,8 +198,8 @@ urlcolor=primaryColor
 	\input{sections/certifications.tex}
 	
 	% ---------------- Awards ----------------
-	\section{\faTrophy\ Awards}
-	\input{sections/awards.tex}
+%	\section{\faTrophy\ Awards}
+%	\input{sections/awards.tex}
 	
 \end{document}
 
@@ -211,20 +222,4 @@ urlcolor=primaryColor
 	%	        
 	%        \end{twocolentry}
 
-
-%    \section{\faNewspaper\ Publications}
-%
-%        \begin{samepage}
-	%            \begin{twocolentry}{Oct. 2024}
-		%                \textbf{Towards a GENEA Leaderboard}
-		%%                	an Extended, Living Benchmark for Evaluating and Advancing Conversational Motion Synthesis
-		%                \vspace{0.10 cm}
-		%
-		%\mbox{Rajmund Nagy}, \mbox{Hendric Voss}, \mbox{Youngwoo Yoon}, \mbox{Taras Kucherenko}, \mbox{Teodor Nikolov}, \textbf{Thanh Hoang-Minh}, \mbox{Rachel McDonnell}, \mbox{Stefan Kopp}, \mbox{Michael Neff}, \mbox{Gustav Eje Henter}
-		%%                \mbox{Frodo Baggins}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Samwise Gamgee}
-		%                \vspace{0.10 cm}
-		%
-		%        \href{https://doi.org/10.48550/arXiv.2410.06327}{10.48550/arXiv.2410.06327}
-		%            \end{twocolentry}
-	%        \end{samepage}
 

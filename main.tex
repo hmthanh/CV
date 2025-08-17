@@ -51,15 +51,15 @@ urlcolor=primaryColor
 \pdfgentounicode=1
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+%\usepackage{lmodern}
 \fi
 
 % Font
 %\usepackage{lmodern}
-\usepackage[default, type1]{sourcesanspro}
-%\usepackage{fontspec}
+%\usepackage[default, type1]{sourcesanspro}
+\usepackage{fontspec}
 %\setmainfont{SourceSans3-VariableFont\_wght}
-%\setmainfont{Segoe UI}
+\setmainfont{Segoe UI}
 \linespread{1.1}
 % ------------------------------------------------------------------------------
 % GENERAL SETTINGS
@@ -151,8 +151,8 @@ urlcolor=primaryColor
 % UTILITIES
 % ------------------------------------------------------------------------------
 
-\let\hrefWithoutArrow\href
-\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2\ }\raisebox{.15ex}{\footnotesize\faExternalLink*}}}
+\let\aref\href
+\renewcommand{\href}[2]{\aref{#1}{\ifthenelse{\equal{#2}{}}{ }{#2\ }\raisebox{.15ex}{\footnotesize\faExternalLink*}}}
 
 \newcommand{\dateformat}[3]{\ifstrequal{#3}{Present}{#1 #2 -- Present}{#1 #2 -- #3}}
 \newcommand{\cvspace}{\vspace{0.2cm}}
@@ -174,40 +174,48 @@ urlcolor=primaryColor
 	% ---------------- Intro ----------------
 	\input{sections/intro.tex}
 	
-	% ---------------- Summary ----------------
-	\section{\faStar \ Keypoint}
+	% ---------------- Summary ---------------- 
+	\section{\faStar\ Keypoint}
 	\input{sections/summary.tex}
 	
-	% ---------------- Education ----------------
+	% ---------------- Education ---------------- 
 	\section{\faUniversity\ Education}
 	\input{sections/education.tex}
 	
-	% ---------------- Publications ---------------
+	% ---------------- Publications --------------- 
 	\section{\faNewspaper\ Publications}
 	\input{sections/publications.tex}
 	
-	% ---------------- Experience ----------------
+	% ---------------- Experience ---------------- 
 	\section{\faBriefcase\ Experience}
 	\input{sections/experience.tex}
 	
-	% ---------------- Projects ----------------
-	\section{\faCode\ Selected Projects}
+	% ---------------- Projects ---------------- 
+	\section{\faCode\ Pet Projects}
 	\input{sections/projects.tex}
 	
-	% ---------------- Certifications ----------------
+	% ---------------- Certifications ---------------- 
 	\section{\faCertificate\ Certifications}
 	\input{sections/certifications.tex}
 	
-	% ---------------- Awards ----------------
+	% ---------------- Awards ---------------- 
 %	\section{\faTrophy\ Awards}
 %	\input{sections/awards.tex}
-	
+
+	% --------\ 
+      \section{\faLaptop\ Technologies}
+      \begin{highlights}
+      	\item \textbf{AI/ML \& Agent Development:} Python, PyTorch, LangChain, Prompt Engineering, RAG frameworks, Agent system design patterns, MCP protocol
+      	\item \textbf{Frontend:} React, Next.js, TypeScript, Tailwind CSS v4, D3.js, WebSockets, RESTful APIs
+      	\item \textbf{Backend:} Node.js, PostgreSQL, Redis, MongoDB, Docker, AWS (Lambda, EC2, S3), message queues, microservices architecture
+      	\item \textbf{Evaluation \& Monitoring:} MLflow, Weights \& Biases, CI/CD (GitHub Actions, Jenkins)
+      	\item \textbf{Tools:} Git, VS Code, Jupyter, Postman, Agile/Scrum methodologies
+      \end{highlights}
+      
 \end{document}
 
 %\item {
-	%	\begin{twocolentry}{June. 2021}
-		%		\href{https://www.credly.com/badges/8e0316a5-2463-4d8c-aa34-76a2f6a0c1c3}{FPT Training: Solution Architect Certificate}
-		%	\end{twocolentry}
+	
 	%}
 
 %        \begin{twocolentry}{2019}

@@ -56,10 +56,10 @@ urlcolor=primaryColor
 
 % Font
 %\usepackage{lmodern}
-\usepackage[default, type1]{sourcesanspro}
-%\usepackage{fontspec}
+%\usepackage[default, type1]{sourcesanspro}
+\usepackage{fontspec}
 %\setmainfont{SourceSans3-VariableFont\_wght}
-%\setmainfont{Segoe UI}
+\setmainfont{Segoe UI}
 \linespread{1.1}
 % ------------------------------------------------------------------------------
 % GENERAL SETTINGS
@@ -151,8 +151,8 @@ urlcolor=primaryColor
 % UTILITIES
 % ------------------------------------------------------------------------------
 
-\let\hrefWithoutArrow\href
-\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2\ }\raisebox{.15ex}{\footnotesize\faExternalLink*}}}
+\let\aref\href
+\renewcommand{\href}[2]{\aref{#1}{\ifthenelse{\equal{#2}{}}{ }{#2\ }\raisebox{.15ex}{\footnotesize\faExternalLink*}}}
 
 \newcommand{\dateformat}[3]{\ifstrequal{#3}{Present}{#1 #2 -- Present}{#1 #2 -- #3}}
 \newcommand{\cvspace}{\vspace{0.2cm}}

@@ -2,8 +2,35 @@
 
 %\section{\faCode\ Projects}
 
-\begin{twocolentry}{\aref{https://deepgesture.pages.dev}{deepgesture.github.io}}
-	\textbf{DeepGesture} (\aref{https://github.com/DeepGesture/DeepGesture}{Code})
+\begin{twocolentry}{\aref{https://millionscope.com}{millionscope.com}} 
+	\textbf{MillionScope}  (End-to-end ownership: \aref{https://github.com/millionscope/millionscope.github.io}{Code}) 
+%	ChatGPT-Style streaming response
+	
+	\begin{highlights}
+		\item Finetune GPT-OSS 20B via OpenAI-Cookbook with custom dataset.
+		\item Experiment post-training RLHF chat response via \aref{https://github.com/hmthanh/trl}{huggingface/trl}, evaluate perlexity with \aref{https://github.com/hmthanh/evaluate}{huggingface/evaluate}
+		\item Develop full-stack both UI (Nextjs, Chat SDK, Cloudflare Pages) and backend LLM serving with SGLang on Thunder Compute, Cloudflare AI
+%		 (current online version still use Cloudflare AI).
+	\end{highlights}
+\end{twocolentry}
+
+\cvspace
+
+\begin{twocolentry}{\aref{https://parrotspeech.pages.dev}{parrotspeech.pages.dev}}
+	\textbf{ParrotSpeech} (End-to-end ownership: \aref{https://github.com/ParrotSpeech/parrotspeech.github.io}{Code})
+%	  Finetune F5-TTS model in Vietnam/
+	\begin{highlights}
+		\item Crawl speech dataset with \texttt{yt-dlp} youtube channels. Using Chunkformer to transcribe, preprocessing dataset.
+		\item Fine-tune F5-TTS with Vietnamese speech and quantization QLoRA with \texttt{bitsandbytes}
+		\item Export weights and serving via \texttt{onnx-runtime} and \texttt{transformers.js}
+	\end{highlights}
+\end{twocolentry}
+
+
+\cvspace
+
+\begin{twocolentry}{\aref{https://deepgesture.pages.dev}{deepgesture.pages.dev}}
+	\textbf{DeepGesture} (\aref{https://github.com/DeepGesture/DeepGesture}{Code}): Convert euler rotation motion to quaternion-space, develop Diffusion Transformer (DiT) for generate MFCC cofficient (Similar MFCC speech but for skeleton motion movement).
 %	\begin{highlights}
 %		\item Loaded and scaled facial OBJ parts in Blender (eyeball, head, tongue, etc.); applied edited albedo, roughness, specular, clearcoat maps; configured dat.GUI, environment toggle, and tone mapping for realistic facial rendering
 %	\end{highlights}
@@ -11,32 +38,11 @@
 
 \cvspace
 
-\begin{twocolentry}{\aref{https://renderengine.pages.dev}{renderengine.pages.dev}}
-	\textbf{Three.js realisitic face for OpenHuman} (\aref{https://github.com/openhuman-ai/renderengine}{Code})
-	\begin{highlights}
-		\item Loaded and scaled facial OBJ parts in Blender (eyeball, head, tongue, etc.); applied edited albedo, roughness, specular, clearcoat maps; configured dat.GUI, environment toggle, and tone mapping for realistic facial rendering
-	\end{highlights}
+\begin{twocolentry}{\aref{https://surveywithcode.pages.dev/english}{surveywithcode.pages.dev}}
+	\textbf{SurveyWithCode} (\aref{https://github.com/SurveyWithCode/surveywithcode.github.io}{Code}):  PapersWithCode alternative using D3.js visualize taxomoy survey, provide DeepLearning knowledge.
 \end{twocolentry}
 
-\begin{twocolentry}{\aref{https://hairmimic.github.io}{hairmimic.github.io}}
-	\textbf{HairMimic} (\aref{https://github.com/hairmimic/hairmimic.github.io}{Code}):  Generate hair from Maya XGen Grooming and load hair meshes.
-\end{twocolentry}
 
-\cvspace
-
-\begin{twocolentry}{\aref{https://millionscope.com}{millionscope.com}}
-	\textbf{MillionScope}  (\aref{https://github.com/millionscope/millionscope.github.io}{Code}) ChatGPT-Style streaming response
-\end{twocolentry}
-
-\cvspace
-
-\begin{twocolentry}{\aref{https://puccarunner.github.io}{Pucca Runner}}
-	\textbf{Unity Game Pucca Runner} (\aref{https://github.com/hmthanh/pucca_runner}{Code}) Pathfinding with a 2D hash map and Dijkstra’s algorithm; runner moves toward the player and triggers collision on boundary breach
-%	, or goal reach.
-%	\begin{highlights}
-%		\item 
-%	\end{highlights}
-\end{twocolentry}
 
 %
 %\cvspace
@@ -52,19 +58,19 @@
 
 
 
+%\cvspace
+%
+%\begin{onecolentry}
+%	\textbf{Three.js Demo Project}:
+%	\aref{https://glowshader.vercel.app}{GlowShader}/ \aref{https://github.com/hmthanh/GlowShader}{Code}, \aref{https://springsphere.vercel.app}{SpringSphere}/
+%	\aref{https://github.com/hmthanh/SpringSphere}{Code},
+%	\aref{https://vinfast.vercel.app}{Vinfast Car}/\aref{https://github.com/hmthanh/vinfastcar}{Code}, \aref{https://jumming.vercel.app/}{Jumming Girl}/ \aref{https://github.com/hmthanh/jumming-girl}{Code}, \aref{https://crosssphere.vercel.app/}{Cross Sphere}/ \aref{https://github.com/hmthanh/crosssphere}{Code}.
+%	
+%\end{onecolentry}
+
 \cvspace
 
 \begin{onecolentry}
-	\textbf{Three.js Demo Project}:
-	\aref{https://glowshader.vercel.app}{GlowShader}/ \aref{https://github.com/hmthanh/GlowShader}{Code}, \aref{https://springsphere.vercel.app}{SpringSphere}/
-	\aref{https://github.com/hmthanh/SpringSphere}{Code},
-	\aref{https://vinfast.vercel.app}{Vinfast Car}/\aref{https://github.com/hmthanh/vinfastcar}{Code}, \aref{https://jumming.vercel.app/}{Jumming Girl}/ \aref{https://github.com/hmthanh/jumming-girl}{Code}, \aref{https://crosssphere.vercel.app/}{Cross Sphere}/ \aref{https://github.com/hmthanh/crosssphere}{Code}.
-	
-\end{onecolentry}
-
-\cvspace
-
-\begin{onecolentry}
-	\textbf{Others projects}: \aref{https://hmthanh.github.io/3d-human-model}{Morph target animation ReadyPlayerMe}, MetaPet (\aref{https://metapet.vercel.app}{metapet.vercel.app}), \aref{https://cortexpod.com}{cortexpod.com};  \aref{https://pithagon.com}{pithagon.com}
+	\textbf{Others pet projects}: \aref{https://renderengine.pages.dev}{Realisitic Digital Human Render Engine},  \aref{https://puccarunner.github.io}{Game Pucca Runner}: dijkstra algorithm path finding game; \aref{https://hmthanh.github.io/3d-human-model}{3D Threejs Skeleton}, MetaPet (\aref{https://metapet.vercel.app}{metapet.vercel.app}/\aref{https://github.com/hmthanh/metapet}{Code}), \aref{https://cortexpod.com}{cortexpod.com};  \aref{https://pithagon.com}{pithagon.com}
 \end{onecolentry}
 

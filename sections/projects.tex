@@ -1,43 +1,57 @@
-
-
 %\section{\faCode\ Projects}
 
+\begin{twocolentry}{\aref{https://tilegraphagent.pages.dev}{TileGraphAgent.pages}}
+	\textbf{TileGraphAgent} (\aref{https://github.com/TileGraphAgent/TileGraphAgent}{Code}):
+	\begin{highlights}
+		\item \textit{CesiumJS industrial 3D viewer} for \textit{3D Tiles 1.1}, glTF/GLB
+		\item \textbf{Rust-based IFC data transform pipeline}: IFC data to tiles, spatial index, Neo4j graph nodes. Object picking, property inspection, highlight/isolate actions. 
+		\item \textbf{MCP LLM using Cloudflare Worker}:  Knowledge Graph (\textbf{neo4j}). Build RAG layer to integrating DeepSeek v4 API with MCP tools
+	\end{highlights}
+
+\end{twocolentry}
+
+\cvspace
+
 \begin{twocolentry}{\aref{https://renderengine.pages.dev}{renderengine.pages.dev}}
-	\textbf{Digital Human Render Engine} (\aref{https://github.com/openhuman-ai/renderengine}{Code}): real-time browser rendering of a realistic face for OpenHuman - loaded and scaled facial OBJ parts in Blender (eyeball, head, tongue); applied edited albedo, roughness, specular, and clearcoat maps; configured dat.GUI, environment toggle, and tone mapping (Three.js / WebGL, custom \aref{https://github.com/openhuman-ai/renderengine/blob/main/test/vertex\_full.glsl}{GLSL shaders}).
+	\textbf{OpenHuman Render Engine} (\aref{https://github.com/openhuman-ai/renderengine}{Code}): real-time realistic face, applied albedo, roughness, specular, and clearcoat maps; tone mapping (custom \aref{https://github.com/openhuman-ai/renderengine/blob/main/test/vertex\_full.glsl}{GLSL shaders}).
 \end{twocolentry}
 
 \cvspace
 
 \begin{twocolentry}{\aref{https://hairmimic.github.io}{hairmimic.github.io}}
-	\textbf{HairMimic}: generate hair from Maya XGen Grooming and load hair meshes into a real-time pipeline.
+	\textbf{HairMimic}: Maya XGen Hair Grooming, load hair meshes into real-time pipeline
 \end{twocolentry}
 
 \cvspace
 
 \begin{twocolentry}{\aref{https://deepgesture.pages.dev}{deepgesture.pages.dev}}
-	\textbf{DeepGesture} (\aref{https://github.com/DeepGesture/DeepGesture}{Code}): converted Euler-rotation motion to quaternion space and developed a Diffusion Transformer (DiT) to generate MFCC-style coefficients for 3D skeletal motion.
+	\textbf{DeepGesture} (\aref{https://github.com/DeepGesture/DeepGesture}{Code}):
+	\begin{highlights}
+		\item transform Euler-rotation motion to quaternion, Diffusion Transformer (DiT) to generate MFCC coefficients for 3D skeleton motion.
+		\item Custom BVH loader animation with Unity Window, CSharp BVH parse in Unity
+	\end{highlights}
 \end{twocolentry}
 
-\cvspace
 
-\begin{twocolentry}{\aref{https://millionscope.com}{millionscope.com}}
-	\textbf{MillionScope} (\aref{https://github.com/millionscope/millionscope.github.io}{Code}): ChatGPT-style streaming chat LLM. Fine-tuned GPT-OSS 20B (OpenAI-Cookbook) with a custom dataset and post-training RLHF; full-stack UI (NextJS, Chat SDK, Cloudflare Pages) with SGLang backend serving.
-\end{twocolentry}
 
-\cvspace
+%\begin{twocolentry}{\aref{https://millionscope.com}{millionscope.com}}
+%	\textbf{MillionScope} (\aref{https://github.com/millionscope/millionscope.github.io}{Code}): ChatGPT-style streaming chat LLM. Fine-tuned GPT-OSS 20B (OpenAI-Cookbook) with a custom dataset and post-training RLHF; full-stack UI (NextJS, Chat SDK, Cloudflare Pages) with SGLang backend serving.
+%\end{twocolentry}
+
+%\cvspace
 
 \begin{twocolentry}{\aref{https://puccarunner.github.io}{Pucca Runner}}
-	\textbf{Unity Game - Pucca Runner} (\aref{https://github.com/hmthanh/puccarunner}{Code}): pathfinding with a 2D hash map and Dijkstra's algorithm; runner moves toward the player and triggers collision on boundary breach.
+	\textbf{Pucca Runner} (\aref{https://github.com/hmthanh/puccarunner}{Code}) (Unity Game): pathfinding game Dijkstra's algorithm
 \end{twocolentry}
 
-\cvspace
+%\cvspace
 
 \begin{onecolentry}
-	\textbf{Three.js demos}: \aref{https://glowshader.vercel.app}{GlowShader}/\aref{https://github.com/hmthanh/GlowShader}{Code}, \aref{https://springsphere.vercel.app}{SpringSphere}/\aref{https://github.com/hmthanh/SpringSphere}{Code}, \aref{https://vinfast.vercel.app}{Vinfast Car}/\aref{https://github.com/hmthanh/vinfastcar}{Code}, \aref{https://jumming.vercel.app}{Jumming Girl}/\aref{https://github.com/hmthanh/jumming-girl}{Code}, \aref{https://crosssphere.vercel.app}{Cross Sphere}/\aref{https://github.com/hmthanh/crosssphere}{Code}.
+	\textbf{Three.js demos}: \aref{https://glowshader.vercel.app}{GlowShader}/\aref{https://github.com/hmthanh/GlowShader}{Code}, \aref{https://springsphere.vercel.app}{SpringSphere}/\aref{https://github.com/hmthanh/SpringSphere}{Code}, \aref{https://vinfast.vercel.app}{Vinfast Car}/\aref{https://github.com/hmthanh/vinfastcar}{Code}
 \end{onecolentry}
 
-\cvspace
+%\cvspace
 
-\begin{onecolentry}
-	\textbf{Other projects}: Morph-target animation (ReadyPlayerMe), \aref{https://hmthanh.github.io/3d-human-model}{3D Three.js Skeleton}, MetaPet (\aref{https://metapet.vercel.app}{metapet.vercel.app}/\aref{https://github.com/hmthanh/metapet}{Code}), \aref{https://cortexpod.com}{cortexpod.com}, \aref{https://pithagon.com}{pithagon.com}.
-\end{onecolentry}
+%\begin{onecolentry}
+%	\textbf{Other projects}: \aref{https://hmthanh.github.io/3d-human-model}{3D Three.js Skeleton},  \aref{https://metapet.vercel.app}{MetaPet} (\aref{https://github.com/hmthanh/metapet}{Code}), \aref{https://cortexpod.com}{cortexpod.com}
+%\end{onecolentry}

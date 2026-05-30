@@ -151,8 +151,30 @@ urlcolor=primaryColor
 % UTILITIES
 % ------------------------------------------------------------------------------
 
-\let\aref\href
-\renewcommand{\href}[2]{\aref{#1}{\ifthenelse{\equal{#2}{}}{ }{#2\ }\raisebox{.15ex}{\footnotesize\faExternalLink*}}}
+%\let\aref\href
+%\newcommand{\aref}[2]{%
+%	\href[pdfnewwindow=true]{#1}{#2}%
+%}
+%\renewcommand{\href}[2]{\aref{#1}{\ifthenelse{\equal{#2}{}}{ }{#2\ }\raisebox{.15ex}{\footnotesize\faExternalLink*}}}
+
+
+
+
+
+\let\oldhref\href
+
+\newcommand{\aref}[2]{%
+	\oldhref[pdfnewwindow=true]{#1}{#2}%
+}
+
+\renewcommand{\href}[2]{%
+	\aref{#1}{%
+		\ifthenelse{\equal{#2}{}}%
+		{ }%
+		{#2\ }%
+		\raisebox{.15ex}{\footnotesize\faExternalLink*}%
+	}%
+}
 
 \newcommand{\dateformat}[3]{\ifstrequal{#3}{Present}{#1 #2 -- Present}{#1 #2 -- #3}}
 \newcommand{\cvspace}{\vspace{0.2cm}}

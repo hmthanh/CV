@@ -37,4 +37,5 @@
 .DS_Store
 
 # Output PDF (optional, if you want to exclude it)
-# *.pdf
+*.pdf
+# main.pdf
